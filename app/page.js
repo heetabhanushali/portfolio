@@ -11,7 +11,7 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Heeta Bhanushali",
-  url: "https://your-site.vercel.app",
+  url: "https://heetabhanushali.vercel.app",
   jobTitle: "Software Engineer",
   description: "Computer engineer studying Software Systems Engineering at RWTH Aachen.",
   alumniOf: "RWTH Aachen University",
@@ -28,7 +28,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      
+
       <Navbar />
       <main>
         <Hero />

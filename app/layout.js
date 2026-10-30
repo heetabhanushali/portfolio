@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
   );
 }
 
-const SITE_URL = "https://your-site.vercel.app";
+const SITE_URL = "https://heetabhanushali.vercel.app/";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),

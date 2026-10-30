@@ -1,7 +1,7 @@
 export default function sitemap() {
   return [
     {
-      url: "https://your-site.vercel.app",
+      url: "https://heetabhanushali.vercel.app/",
       lastModified: new Date(),
     },
   ];

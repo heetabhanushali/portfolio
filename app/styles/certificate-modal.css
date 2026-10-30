@@ -1,0 +1,213 @@
+/* ===============================================
+   CERTIFICATE MODAL
+   =============================================== */
+
+.cert-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cert-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cert-modal-container {
+    background: var(--color-bg);
+    border-radius: var(--radius-xl);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.3),
+        0 0 0 1px var(--color-border);
+    transform: translateY(30px) scale(0.96);
+    opacity: 0;
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.3s ease;
+}
+
+.cert-modal-backdrop.active .cert-modal-container {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.cert-modal-close {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-base);
+    z-index: 10;
+}
+
+.cert-modal-close:hover {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+    transform: rotate(90deg);
+}
+
+.cert-modal-scroll {
+    overflow-y: auto;
+    flex: 1;
+    padding: var(--spacing-2xl);
+}
+
+.cert-modal-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cert-modal-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cert-modal-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+}
+
+.cert-modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+}
+
+.cert-modal-header {
+    margin-bottom: var(--spacing-xl);
+    padding-right: var(--spacing-3xl);
+}
+
+.cert-modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.cert-modal-platform {
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.cert-modal-preview {
+    width: 100%;
+    min-height: 200px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-bg-secondary);
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-modal-preview img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.cert-modal-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.cert-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 10px var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.cert-modal-btn.primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.cert-modal-btn.primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(81, 120, 189, 0.35);
+}
+
+@media screen and (max-width: 768px) {
+    .cert-modal-backdrop {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .cert-modal-container {
+        max-height: 92vh;
+        max-width: 100%;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        transform: translateY(100%);
+        opacity: 1;
+    }
+
+    .cert-modal-backdrop.active .cert-modal-container {
+        transform: translateY(0);
+    }
+
+    .cert-modal-scroll {
+        padding: var(--spacing-xl);
+    }
+
+    .cert-modal-scroll::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: var(--color-border);
+        border-radius: var(--radius-full);
+        margin: 0 auto var(--spacing-lg);
+    }
+
+    .cert-modal-title {
+        font-size: 1.25rem;
+    }
+
+    .cert-modal-preview {
+        height: 350px;
+    }
+
+    .cert-modal-actions {
+        flex-direction: column;
+    }
+
+    .cert-modal-btn {
+        justify-content: center;
+    }
+}

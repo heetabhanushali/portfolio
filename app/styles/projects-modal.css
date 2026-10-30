@@ -1,0 +1,550 @@
+/* ===============================================
+   PROJECT CARDS - ENHANCED DESIGN
+   =============================================== */
+
+.project-card {
+    background: var(--color-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--color-shadow);
+    transition: all var(--transition-base);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px var(--color-shadow);
+}
+
+/* Featured Badge */
+.featured-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Project Image Container */
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: var(--color-bg-secondary);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+/* Hover Overlay Panel */
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        to top,
+        rgba(81, 120, 189, 0.98),
+        rgba(81, 120, 189, 0.92)
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-lg);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.project-card:hover .project-overlay {
+    transform: translateY(0);
+}
+
+/* Quick Links in Overlay */
+.overlay-quick-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.quick-link-btn {
+    flex: 1;
+    min-width: fit-content;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    transition: all var(--transition-base);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.quick-link-btn:hover {
+    background: white;
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* View Details Button */
+.view-details-btn {
+    width: 100%;
+    background: white;
+    color: var(--color-primary);
+    padding: var(--spacing-md);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    transition: all var(--transition-base);
+    margin-top: var(--spacing-xs);
+}
+
+.view-details-btn:hover {
+    background: var(--color-primary-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Project Content (Below Image) */
+.project-content {
+    padding: var(--spacing-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.project-tagline {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Tech Stack Badges */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: auto;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all var(--transition-base);
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-badge:hover {
+    background: var(--tech-color);
+    color: white;
+    transform: translateY(-2px);
+    border-color: var(--tech-color);
+    padding-right: 12px; /* Make room for text */
+}
+
+.tech-badge i {
+    font-size: 1rem;
+    color: var(--tech-color);
+    transition: color var(--transition-base);
+    flex-shrink: 0;
+}
+
+.tech-badge:hover i {
+    color: white;
+}
+
+.tech-name {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.3s ease, opacity 0.3s ease, margin-left 0.3s ease;
+    margin-left: 0;
+}
+
+.tech-badge:hover .tech-name {
+    max-width: 100px; /* Adjust based on longest tech name */
+    opacity: 1;
+    margin-left: 4px;
+}
+
+/* ===============================================
+   MODAL STYLES
+   =============================================== */
+
+/* Modal Backdrop */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Container */
+.modal-container {
+    background: var(--color-bg);
+    border-radius: var(--radius-xl);
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-scroll {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.modal-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+}
+
+.modal-backdrop.active .modal-container {
+    transform: scale(1) translateY(0);
+}
+
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-base);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+    transform: rotate(90deg);
+}
+
+/* Modal Content Layout */
+.modal-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+}
+
+/* Modal Image Section */
+.modal-image {
+    position: sticky;
+    top: var(--spacing-2xl);
+    height: fit-content;
+}
+
+.modal-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 16px var(--color-shadow);
+}
+
+/* Video Embed */
+.modal-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-video iframe,
+.modal-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Modal Details Section */
+.modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.modal-header h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.modal-header .tagline {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+}
+
+/* Modal Section */
+.modal-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.modal-section h3 {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-align: justify;
+}
+
+.modal-section p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Features List */
+.features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.features-list li {
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.features-list li::before {
+    content: '✓';
+    color: var(--color-success);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.modal-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-xs);
+    row-gap: var(--spacing-sm);
+}
+
+/* Modal Tech Stack - Always show names */
+.modal-tech-stack .tech-badge {
+    padding: 6px 12px;
+}
+
+.modal-tech-stack .tech-name {
+    max-width: none;
+    opacity: 1;
+    margin-left: 4px;
+}
+
+/* Project Meta Info */
+.project-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.meta-label {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.meta-value {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Modal Action Buttons */
+.modal-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    flex: 1;
+    min-width: fit-content;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    transition: all var(--transition-base);
+}
+
+.modal-btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+}
+
+.modal-btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(81, 120, 189, 0.3);
+}
+
+.modal-btn-secondary {
+    background: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+}
+
+.modal-btn-secondary:hover {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-xl);
+    }
+    
+    .modal-image {
+        position: relative;
+        top: 0;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .project-meta {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-btn {
+        width: 100%;
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+    
+    .modal-backdrop {
+        padding: var(--spacing-md);
+    }
+}

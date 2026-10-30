@@ -1,0 +1,712 @@
+/* ===============================================
+   RESEARCH SECTION STYLES
+   =============================================== */
+
+/* =============== SECTION =============== */
+.research-section {
+    background: var(--color-bg-secondary);
+}
+
+/* =============== RESEARCH GRID =============== */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* =============== RESEARCH CARD =============== */
+.research-card {
+    background: var(--color-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--color-shadow);
+    transition: all var(--transition-base);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: var(--spacing-xl);
+}
+
+.research-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px var(--color-shadow);
+}
+
+/* =============== CARD HEADER =============== */
+.research-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.research-year {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* =============== STATUS BADGE =============== */
+.research-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: transparent;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--status-color);
+    border: 1px solid var(--status-color);
+}
+
+.research-status-badge i {
+    font-size: 0.7rem;
+}
+
+/* In-progress spinner */
+.research-card[data-status="in-progress"] .research-status-badge i {
+    animation: spin 2s linear infinite;
+}
+
+/* =============== CARD CONTENT =============== */
+.research-card-content {
+    flex: 1;
+}
+
+.research-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+    font-weight: 600;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.research-authors {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+    font-style: italic;
+}
+
+.research-venue {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+}
+
+.research-tagline {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* =============== KEYWORDS =============== */
+.research-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: auto;
+}
+
+.research-keyword {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all var(--transition-base);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+.research-keyword:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* =============== CARD FOOTER =============== */
+.research-card-footer {
+    padding-top: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.research-details-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* =============== COMING SOON =============== */
+.research-coming-soon {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.research-coming-soon i {
+    color: var(--color-warning);
+}
+
+/* =============== ERROR MESSAGE =============== */
+.research-section .error-message {
+    text-align: center;
+    color: var(--color-text-tertiary);
+    padding: var(--spacing-2xl);
+    grid-column: 1 / -1;
+}
+
+.research-section .error-message i {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+    color: var(--color-accent);
+}
+
+/* =============== RESPONSIVE =============== */
+@media screen and (max-width: 768px) {
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .research-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .research-title {
+        font-size: 1rem;
+    }
+    
+    .research-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+}
+
+/* ===============================================
+   RESEARCH MODAL — Scholarly Style
+   =============================================== */
+
+/* ===== BACKDROP ===== */
+.research-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.research-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== CONTAINER ===== */
+.research-modal-container {
+    background: var(--color-bg);
+    border-radius: var(--radius-xl);
+    max-width: 720px;
+    width: 100%;
+    max-height: 85vh;
+    position: relative;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.3),
+        0 0 0 1px var(--color-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(30px) scale(0.96);
+    opacity: 0;
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.3s ease;
+}
+
+.research-modal-backdrop.active .research-modal-container {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* ===== CLOSE BUTTON ===== */
+.research-modal-close {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+    z-index: 10;
+}
+
+.research-modal-close:hover {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+    transform: rotate(90deg);
+}
+
+/* ===== SCROLLABLE BODY ===== */
+.research-modal-scroll {
+    padding: var(--spacing-3xl);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.research-modal-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.research-modal-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.research-modal-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+}
+
+.research-modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+}
+
+/* ===== TITLE ===== */
+.research-modal-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-text);
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    padding-right: var(--spacing-3xl);
+}
+
+/* ===== AUTHORS ===== */
+.research-modal-authors {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.research-modal-authors > i {
+    color: var(--color-primary);
+    margin-right: var(--spacing-sm);
+    font-size: 0.85rem;
+}
+
+.research-modal-author-highlight {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.research-modal-author-sep {
+    color: var(--color-text-tertiary);
+}
+
+/* ===== META ===== */
+.research-modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+}
+
+.research-modal-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.research-modal-meta-item i {
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    width: 16px;
+    text-align: center;
+}
+
+/* ===== DIVIDER ===== */
+.research-modal-divider {
+    border: none;
+    height: 1px;
+    background: var(--color-border);
+    margin: var(--spacing-xl) 0;
+}
+
+/* ===== SECTION HEADING ===== */
+.research-modal-heading {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--spacing-md);
+}
+
+/* ===== ABSTRACT ===== */
+.research-modal-abstract {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--color-text-secondary);
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* ===== KEYWORDS ===== */
+.research-modal-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+/* ===============================================
+   LIFECYCLE PROGRESS
+   =============================================== */
+.lifecycle-track {
+    display: flex;
+    align-items: flex-start;
+    padding: var(--spacing-lg) 0 var(--spacing-sm);
+}
+
+.lifecycle-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.lifecycle-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: transparent;
+    transition: all var(--transition-base);
+}
+
+/* Completed */
+.lifecycle-step.completed .lifecycle-dot {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* Current */
+.lifecycle-step.current .lifecycle-dot {
+    background: var(--stage-color);
+    border-color: var(--stage-color);
+    color: white;
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--stage-color) 20%, transparent);
+    transform: scale(1.2);
+}
+
+.lifecycle-step.current .lifecycle-dot i.fa-spinner {
+    animation: spin 2s linear infinite;
+}
+
+/* Upcoming */
+.lifecycle-step.upcoming .lifecycle-dot {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+}
+
+/* Labels */
+.lifecycle-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: var(--color-text-tertiary);
+    text-align: center;
+    max-width: 68px;
+    line-height: 1.3;
+}
+
+.lifecycle-step.completed .lifecycle-label {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.lifecycle-step.current .lifecycle-label {
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+/* Connector lines */
+.lifecycle-line {
+    flex: 1;
+    height: 2px;
+    background: var(--color-border);
+    margin-top: 15px;
+    min-width: 16px;
+    border-radius: 1px;
+}
+
+.lifecycle-line.completed {
+    background: var(--color-primary);
+}
+
+/* ===============================================
+   ACTION BUTTONS
+   =============================================== */
+.research-modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+}
+
+.research-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 10px var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.research-modal-btn.primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.research-modal-btn.primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(81, 120, 189, 0.35);
+}
+
+.research-modal-btn.secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.research-modal-btn.secondary:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ===============================================
+   CITATION BLOCK
+   =============================================== */
+.research-modal-citation-section {
+    display: none;
+}
+
+.research-modal-citation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.research-modal-citation-header .research-modal-heading {
+    margin-bottom: 0;
+}
+
+.research-modal-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.research-modal-copy-btn:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.research-modal-copy-btn.copied {
+    background: var(--color-success);
+    color: white;
+    border-color: var(--color-success);
+}
+
+.research-modal-citation {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    font-family: var(--font-code);
+    font-size: 0.83rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+}
+
+/* ===============================================
+   RESPONSIVE — Cards + Modal
+   =============================================== */
+@media screen and (max-width: 768px) {
+
+    /* Cards */
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .research-card {
+        padding: var(--spacing-lg);
+    }
+
+    /* Modal → Bottom sheet */
+    .research-modal-backdrop {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .research-modal-container {
+        max-height: 92vh;
+        max-width: 100%;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        transform: translateY(100%);
+        opacity: 1;
+    }
+
+    .research-modal-backdrop.active .research-modal-container {
+        transform: translateY(0);
+    }
+
+    .research-modal-scroll {
+        padding: var(--spacing-xl);
+    }
+
+    /* Drag handle indicator */
+    .research-modal-scroll::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: var(--color-border);
+        border-radius: var(--radius-full);
+        margin: 0 auto var(--spacing-lg);
+    }
+
+    .research-modal-title {
+        font-size: 1.3rem;
+        padding-right: var(--spacing-2xl);
+    }
+
+    .research-modal-meta {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .lifecycle-dot {
+        width: 24px;
+        height: 24px;
+        font-size: 0.55rem;
+    }
+
+    .lifecycle-step.current .lifecycle-dot {
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--stage-color) 20%, transparent);
+    }
+
+    .lifecycle-label {
+        font-size: 0.5rem;
+        max-width: 50px;
+    }
+
+    .lifecycle-line {
+        margin-top: 12px;
+        min-width: 10px;
+    }
+
+    .research-modal-actions {
+        flex-direction: column;
+    }
+
+    .research-modal-btn {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .research-title {
+        font-size: 1rem;
+    }
+
+    .research-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .research-modal-scroll {
+        padding: var(--spacing-lg);
+    }
+
+    .research-modal-title {
+        font-size: 1.15rem;
+    }
+
+    .research-modal-close {
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+        width: 32px;
+        height: 32px;
+    }
+
+    .research-modal-abstract {
+        text-align: left;
+    }
+}

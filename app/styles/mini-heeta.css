@@ -1,0 +1,462 @@
+/* ===============================================
+   MINI-HEETA - PISKEL SPRITE ANIMATION
+   Complete with all animations!
+   =============================================== */
+
+#mini-heeta {
+    position: fixed;
+    width: 100px;
+    height: 150px;
+    z-index: 9998;
+    cursor: grab;
+    user-select: none;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));
+    image-rendering: pixelated;
+}
+
+#mini-heeta.dragging {
+    cursor: grabbing;
+    z-index: 9999;
+}
+
+/* Sprite container */
+.sprite-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* The sprite itself */
+.character-sprite {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    position: absolute;
+    image-rendering: pixelated;
+}
+
+/* IDLE - First frame of turning (front-facing) */
+.character-sprite.idle {
+    background-image: url('/avatar/turning-right.png');
+    background-size: 300px 150px; /* 3 frames × 100px */
+    background-position: 0 0; /* First frame = front facing */
+}
+
+/* TURNING RIGHT - 3 frames */
+.character-sprite.turning-right {
+    background-image: url('/avatar/turning-right.png');
+    background-size: 300px 150px; /* 3 frames × 100px */
+    animation: turn-right-frames 0.3s steps(3) forwards;
+}
+
+@keyframes turn-right-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -300px 0; }
+}
+
+/* TURNING LEFT - 3 frames */
+.character-sprite.turning-left {
+    background-image: url('/avatar/turning-left.png');
+    background-size: 300px 150px; /* 3 frames × 100px */
+    animation: turn-left-frames 0.3s steps(3) forwards;
+}
+
+@keyframes turn-left-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -300px 0; }
+}
+
+/* TURNING BACK TO FRONT - REVERSE ANIMATIONS */
+
+/* Turn back from right (reverse turning-right) */
+.character-sprite.turning-back-right {
+    background-image: url('/avatar/turning-right.png');
+    background-size: 300px 150px; /* 3 frames × 100px */
+    animation: turn-back-right-frames 0.3s steps(3) forwards;
+}
+
+@keyframes turn-back-right-frames {
+    0% { background-position: -300px 0; } /* Start from last frame */
+    100% { background-position: 0 0; } /* End at first frame */
+}
+
+/* Turn back from left (reverse turning-left) */
+.character-sprite.turning-back-left {
+    background-image: url('/avatar/turning-left.png');
+    background-size: 300px 150px; /* 3 frames × 100px */
+    animation: turn-back-left-frames 0.3s steps(3) forwards;
+}
+
+@keyframes turn-back-left-frames {
+    0% { background-position: -300px 0; } /* Start from last frame */
+    100% { background-position: 0 0; } /* End at first frame */
+}
+
+/* WALKING RIGHT - 6 frames loop */
+.character-sprite.walking-right {
+    background-image: url('/avatar/walking-right.png');
+    background-size: 600px 150px; /* 6 frames × 100px */
+    animation: walk-right-frames 0.6s steps(6) infinite;
+}
+
+@keyframes walk-right-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -600px 0; }
+}
+
+/* WALKING LEFT - 6 frames loop */
+.character-sprite.walking-left {
+    background-image: url('/images/avatar/walking-left.png');
+    background-size: 600px 150px; /* 6 frames × 100px */
+    animation: walk-left-frames 0.6s steps(6) infinite;
+}
+
+@keyframes walk-left-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -600px 0; }
+}
+
+/* Jumping - use first frame */
+.character-sprite.jumping {
+    background-image: url('/avatar/turning-right.png');
+    background-size: 300px 150px;
+    background-position: 0 0;
+}
+
+/* FALLING - 5 frames, play once and HOLD last frame */
+.character-sprite.falling {
+    background-image: url('/avatar/falling.png');
+    background-size: 500px 150px; /* 5 frames × 100px */
+    animation: falling-frames 0.5s steps(4) forwards; /* forwards = hold last frame */
+}
+
+@keyframes falling-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -400px 0; } /* Show all 5 frames, hold at last */
+}
+
+/* LANDING - 1 frame */
+.character-sprite.landing {
+    background-image: url('/avatar/landing.png');
+    background-size: 100px 150px; /* Single frame */
+    background-position: 0 0;
+}
+
+/* PICKED UP - when dragging */
+.character-sprite.picked-up {
+    background-image: url('/avatar/picked-up.png');
+    background-size: 100px 150px; /* Single frame */
+    background-position: 0 0;
+}
+
+/* WAVING - 2 frames */
+.character-sprite.waving {
+    background-image: url('/avatar/wave.png');
+    background-size: 200px 150px; /* 2 frames × 100px */
+    animation: wave-frames 0.5s steps(2) infinite;
+}
+
+@keyframes wave-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -200px 0; }
+}
+
+/* TAKING OUT LAPTOP - 4 frames */
+.character-sprite.taking-out-laptop {
+    background-image: url('/avatar/taking-out-laptop.png');
+    background-size: 400px 150px; /* 4 frames × 100px */
+    animation: take-laptop-frames 0.8s steps(4) forwards;
+}
+
+@keyframes take-laptop-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -400px 0; }
+}
+
+/* WORKING ON LAPTOP - 2 frames loop */
+.character-sprite.working {
+    background-image: url('/avatar/working.png');
+    background-size: 200px 150px; /* 2 frames × 100px */
+    animation: working-frames 1s steps(2) infinite;
+}
+
+@keyframes working-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -200px 0; }
+}
+
+/* PUTTING AWAY LAPTOP (reverse) - 4 frames */
+.character-sprite.putting-away-laptop {
+    background-image: url('/avatar/taking-out-laptop.png');
+    background-size: 400px 150px; /* 4 frames × 100px */
+    animation: put-laptop-frames 0.8s steps(4) forwards;
+}
+
+@keyframes put-laptop-frames {
+    0% { background-position: -400px 0; } /* Start from last frame */
+    100% { background-position: 0 0; } /* End at first frame */
+}
+
+/* I DID - Single frame reaction */
+.character-sprite.i-did {
+    background-image: url('/avatar/i-did.png');
+    background-size: 100px 150px; /* Single frame */
+    background-position: 0 0;
+    animation: proudBounce 0.5s ease-in-out;
+}
+
+@keyframes proudBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* COFFEE - 2 frames loop */
+.character-sprite.coffee {
+    background-image: url('/avatar/coffee.png');
+    background-size: 200px 150px; /* 2 frames × 100px */
+    animation: coffee-frames 0.8s steps(2) infinite;
+}
+
+@keyframes coffee-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -200px 0; }
+}
+
+/* DANCE 1 - 9 frames */
+.character-sprite.dance-1 {
+    background-image: url('/avatar/dance-1.png');
+    background-size: 900px 150px; /* 9 frames × 100px */
+    animation: dance-1-frames 0.9s steps(9) forwards;
+}
+
+@keyframes dance-1-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -900px 0; }
+}
+
+/* DANCE 1-2 - 9 frames (loops) */
+.character-sprite.dance-1-2 {
+    background-image: url('/avatar/dance-1-2.png');
+    background-size: 900px 150px; /* 9 frames × 100px */
+    animation: dance-1-2-frames 0.9s steps(9) infinite;
+}
+
+@keyframes dance-1-2-frames {
+    0% { background-position: 0 0; }
+    100% { background-position: -900px 0; }
+}
+
+/* Container animations */
+.sprite-container.walking {
+    animation: walkBounce 0.6s ease-in-out infinite;
+}
+
+@keyframes walkBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.sprite-container.idle {
+    animation: idleFloat 3s ease-in-out infinite;
+}
+
+@keyframes idleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.sprite-container.jumping {
+    animation: jumpUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes jumpUp {
+    0% { transform: translateY(0) scaleY(0.9); }
+    40% { transform: translateY(-70px) scaleY(1.1); }
+    60% { transform: translateY(-80px) scaleY(1); }
+    100% { transform: translateY(0) scaleY(1); }
+}
+
+.sprite-container.dancing {
+    animation: danceBounce 0.3s ease-in-out infinite;
+}
+
+@keyframes danceBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(-5deg); }
+    75% { transform: translateY(-8px) rotate(5deg); }
+}
+
+/* Container for sitting/working */
+.sprite-container.sitting {
+    animation: none; /* No float when sitting */
+}
+
+/* Container animation for proud moment */
+.sprite-container.proud {
+    animation: proudPulse 0.6s ease-in-out;
+}
+
+@keyframes proudPulse {
+    0%, 100% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-5px) scale(1.05); }
+    75% { transform: translateY(-3px) scale(1.02); }
+}
+
+/* Container animation for landing impact */
+.sprite-container.landing {
+    animation: landingImpact 0.3s ease-out;
+}
+
+@keyframes landingImpact {
+    0% { transform: scaleY(0.7) scaleX(1.1); }
+    50% { transform: scaleY(1.15) scaleX(0.95); }
+    100% { transform: scaleY(1) scaleX(1); }
+}
+
+/* Container for coffee drinking */
+.sprite-container.coffee {
+    animation: none; /* No bounce while drinking coffee */
+}
+
+/* Speech Bubble */
+.speech-bubble {
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background: white;
+    color: #1A202C;
+    padding: 12px 18px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    pointer-events: none;
+    border: 3px solid #5178BD;
+    max-width: 220px;
+    white-space: normal;
+    text-align: center;
+}
+
+.speech-bubble.show {
+    animation: bubblePop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 14px solid #5178BD;
+    z-index: -1;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+}
+
+@keyframes bubblePop {
+    0% { transform: translateX(-50%) scale(0); }
+    70% { transform: translateX(-50%) scale(1.15); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+.expression {
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    font-size: 32px;
+    animation: expressionFloat 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    pointer-events: none;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes expressionFloat {
+    0% { opacity: 0; transform: translateY(0) scale(0); }
+    50% { opacity: 1; transform: translateY(-18px) scale(1.15); }
+    100% { opacity: 0; transform: translateY(-50px) scale(0.4); }
+}
+
+/* Particles */
+.particle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #5178BD, #3A5A9A);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(81, 120, 189, 0.6);
+    pointer-events: none;
+    z-index: 9997;
+}
+
+.dust-particle {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ddd, #aaa);
+    border-radius: 50%;
+    animation: dustFade 0.9s ease-out forwards;
+    pointer-events: none;
+    z-index: 9997;
+}
+
+@keyframes dustFade {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-30px) scale(0.2); }
+}
+
+.trail {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle, rgba(81, 120, 189, 0.7), transparent);
+    border-radius: 50%;
+    animation: trailFade 1.1s ease-out forwards;
+    pointer-events: none;
+    z-index: 9997;
+}
+
+@keyframes trailFade {
+    0% { opacity: 0.9; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
+}
+
+@media screen and (max-width: 768px) {
+    #mini-heeta {
+        width: 75px;
+        height: 112px;
+    }
+    
+    .speech-bubble {
+        font-size: 12px;
+        padding: 8px 14px;
+        bottom: 120px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sprite-container.idle,
+    .sprite-container.walking {
+        animation: none;
+    }
+}

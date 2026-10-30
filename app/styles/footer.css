@@ -1,0 +1,29 @@
+.footer {
+    background: var(--color-bg-tertiary);
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.footer p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.heart {
+    color: #EF4444;
+    animation: heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.coffee {
+    animation: steam 2s ease infinite;
+}
+
+@keyframes steam {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}

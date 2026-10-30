@@ -1,0 +1,47 @@
+{
+    "research": [
+        {
+            "id": 1,
+            "title": "Bias Mitigation in Language Models using a Multi-Dimensional Evaluation and Comparison",
+            "authors": ["Arham Shah", "Jai Jain", "Heeta Bhanushali", "Granth Jain", "Chinmay Raut", "Nilesh Patil"],
+            "bookName": "Proceedings of SARC International Conference, Mumbai, India, 06th October, 2025",
+            "series": "",
+            "bookNameShort": "Proceedings of SARC International Conference, 2025",
+            "timeline": "June 2025 - August 2025",
+            "status": "published",
+            "abstract": "Language models exhibit persistent and often harmful biases, especially across intersectional identities. This study presents a comprehensive empirical evaluation of small-scale language models and their susceptibility to various bias types—implicit associations, contextual bias, toxicity, and intersectional disparities. Using four datasets (CrowS-Pairs, RealToxicityPrompts, WinoBias, and a novel Custom Inter- sectional Dataset), we benchmark four input-level mitigation strategies: Prompt Cleaning, Post-Filtering, Context Injection, and Prompt Engineering. Across 64 model-dataset-strategy configurations, we assess bias reduction using WEAT, CAT, Detoxify Toxicity Scores, and a novel Intersectional Bias Score (IBS). Results show Prompt Cleaning is most effective for toxicity, and Post-Filtering offers consistent contextual debiasing, while intersectional bias proves highly resistant. Our findings val- idate the need for multi-metric evaluation and architecture-aware mitigation pipelines, offering a reproducible framework for bias analysis in resource-constrained language models.",
+            "tagline": "A multi-metric framework benchmarking input-level debiasing strategies across 64 configurations of compact language models.",
+            "keywords": ["bias mitigation", "language models", "intersectional bias", "fairness", "NLP", "GPT-2", "DistilBERT", "TinyBERT", "WEAT", "toxicity", "prompt engineering", "CrowS-Pairs", "WinoBias", "RealToxicityPrompts"],
+            "links": {
+                "paper": "https://www.digitalxplore.org/up_proc/pdf/3256-176476143515-19.pdf",
+                "doi": "",
+                "arxiv": "",
+                "github": "https://github.com/heetabhanushali/Bias-Mitigation-in-LLMs.git",
+                "presentation-certificate": "/certificates/bias-mitigation-sarc.pdf"
+            },
+            "visible": true
+        },
+        {
+            "id": 2,
+            "title": "TADR: Typology-Aware Dynamic Routing for Zero-Shot Cross-Lingual Transfer",
+            "authors": ["Heeta Bhanushali", "Jai Jain", "Ameya Suryawanshi", "Meera Narvekar", "Kranti Ghag", "Khushali Deulkar"],
+            "license": "Springer Nature Switzerland AG",
+            "bookName": "Congress on Smart Computing Technologies Proceedings of CSCT 2025, Volume 3",
+            "series": "Smart Innovation, Systems and Technologies",
+            "bookNameShort": "Proceedings of CSCT 2025, Volume 3",
+            "year": "2025",
+            "status": "publishing",
+            "abstract": "Zero-shot cross-lingual transfer remains challenging in multilingual NLP, where models must generalize to unseen languages. Current adapter-based approaches treat all languages uniformly, failing to exploit structural linguistic variations. We propose Typology-Aware Dynamic Routing (TADR), integrating linguistic typology signals with dynamic routing to enhance zero-shot transfer. Our main contribution is a typology-aware architecture with adapters conditioned on typological embeddings from WALS, combined with routing networks that dynamically allocate parameters based on typological similarities. Unlike static approaches, TADR learns specialized adapters for linguistically meaningful transformations. On XNLI zero-shot evaluation TADR achieves 66.47% accuracy on completely unseen languages, matching the performance of full XLM-RoBERTa fine-tuning (66.22%). The TADR architecture introduces 3.8M parameters for adapter and routing modules. Critically, TADR significantly outperforms a partial fine-tuning baseline (14.8M parameters, 57.60% accuracy) by 8.9 percentage points, demonstrating that typology-aware routing provides robust architectural benefits and effective cross-lingual generalization.",
+            "tagline": "Matching full fine-tuning accuracy on unseen languages by integrating WALS typological embeddings with dynamic adapter routing for cross-lingual transfer.",
+            "keywords": ["cross-lingual transfer", "multilingual NLP", "linguistic typology", "adapter networks", "dynamic routing", "XLM-RoBERTa", "WALS", "XNLI", "zero-shot learning", "mixture-of-experts", "full fine-tuning with typological adapters"],
+            "links": {
+                "paper": "",
+                "doi": "",
+                "arxiv": "",
+                "github": "https://github.com/heetabhanushali/TADR-for-Efficient-Cross-Lingual-Transfer-in-LRL.git",
+                "presentation-certificate": "/certificates/dynamic-routing-csct.pdf"
+            },
+            "visible": true
+        }
+    ]
+}

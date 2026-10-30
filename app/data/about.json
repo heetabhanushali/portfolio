@@ -1,0 +1,98 @@
+{
+    "skills": {
+        "languages": ["C", "C++", "Java", "Python", "Rust", "JavaScript", "Dart"],
+        "spoken languages": ["Kutchhi", "Gujarati", "Hindi", "English", "Marathi", "Deutsch"],
+        "frameworks & tools": ["Flutter", "Firebase", "Git", "Supabase", "Docker", "PostgreSQL", "MySQL", "GitHub Actions", "Hive"],
+        "concepts": ["Compiler Design", "Data Structures & Algorithms", "REST APIs", "CI/CD", "Encryption", "Static Analysis", "Code Optimization"]
+    },
+    
+    "education": [
+        {
+            "degree": "B.Tech in Computer Engineering",
+            "institution": "Dwarkadas J. Sanghvi College of Engineering",
+            "link": "https://www.djsce.ac.in/",
+            "location": "Mumbai, Maharashtra",
+            "year": "2022 - 2026",
+            "score": "CGPA: 8.94"
+        },
+        {
+            "degree": "Higher Secondary Certificate (12th)",
+            "institution": "Mithibai College",
+            "link": "https://mithibai.ac.in/",
+            "location": "Mumbai, Maharashtra",
+            "year": "2020 - 2022",
+            "score": "MHT CET: 98.416%ile"
+        },
+        {
+            "degree": "Secondary School Certificate (10th)",
+            "institution": "Smt. Surajba Vidya Mandir",
+            "link": "https://surajbavidyamandir.org/",
+            "location": "Mumbai, Maharashtra",
+            "year": "2020",
+            "score": "SSC: 92.60%"
+        }
+    ],
+    
+    "experience": {
+        "internships": [
+            {
+                "position": "Software Engineer Intern",
+                "organization": "Transline Air Cargo Services Pvt. Ltd.",
+                "year": "June 2024 - November 2024",
+                "description": [
+                    "Designed relational schema covering shipment tracking, customs documentation, client management, and invoicing",
+                    "Built ETL pipelines to migrate historical data, handling inconsistent formats, duplicates, and missing fields",
+                    "Enforced business rules at the database level: status sequencing, mandatory document associations, referential integrity",
+                    "Developed automated reporting for shipment volumes, revenue tracking, and customs duty summaries"
+                ]
+            }
+        ],
+        "positions": [
+            {
+                "position": "Marketing Co-Committee Member",
+                "organization": "DJS Trinity",
+                "year": "2022 - 2023",
+                "description": [
+                    "Selected as one of the very few first-year students on the Co-Committee",
+                    "Secured ₹80,000 in sponsorships individually; ₹2,00,000+ collaboratively",
+                    "Contributed to planning and execution of multiple events including the annual fest"
+                ]
+            },
+            {
+                "position": "Creatives Co-Committee Member",
+                "organization": "DJS eXpress",
+                "year": "2022 - 2023",
+                "description": [
+                    "Designed promotional graphics, edited video content, and contributed to campaign ideation"
+                ]
+            },
+            {
+                "position": "Creatives Co-Committee Member",
+                "organization": "DJS ACM",
+                "year": "2023 - 2024",
+                "description": [
+                    "Designed digital and physical creatives — posters, decor, promotional graphics",
+                    "Worked beyond creatives role — helped organize flagship hackathon(LOC 6.0), contributed to website design, handled publicity"
+                ]
+            }
+        ]
+    },
+    
+    "certificates": [
+        {
+            "name": "Fundamentals Of Digital Marketing",
+            "platform": "Google Digital Garage",
+            "link": "/certificates/digitalgarage-certificate-DM-heeta.pdf"
+        },
+        {
+            "name": "Flutter & Dart - The Complete Guide",
+            "platform": "Udemy",
+            "link": "/certificates/flutter-certificate-heeta.pdf"
+        },
+        {
+            "name": "Website Hacking / Penetration Testing",
+            "platform": "Udemy",
+            "link": "/certificates/website-hacking-certificate.pdf"
+        }
+    ]
+}

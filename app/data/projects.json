@@ -1,0 +1,192 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "TransitCore – A Formally-Grounded Workflow Engine",
+      "tagline": "Built a model-driven state machine engine with declarative specifications, formal verification, and a custom expression language",
+      "description": "Engineered a complete workflow engine where business processes are specified declaratively in YAML and executed with architectural correctness guarantees. Built a custom guard expression language with formal EBNF grammar (Lark parser generator), a static verifier that proves temporal logic properties (reachability, ordering, permanence, cycle detection) on the state machine graph, and an execution engine with atomic transitions, invariant enforcement with rollback, and complete audit trails. Delivered a REST API (FastAPI), SQLite persistence with optimistic locking, auto-generated Graphviz state machine diagrams, and an interactive Streamlit demo.",
+      "image": "/projects/transitcore.png",
+      "github": "https://github.com/heetabhanushali/TransitCore.git",
+      "liveDemo": "",
+      "videoDemo": "",
+      "techStack": ["python", "lark-parser", "sqlalchemy", "graphviz", "streamlit", "hypothesis"],
+      "category": "systems",
+      "featured": false,
+      "visible": true,
+      "timeline": "December 2025 - February 2026",
+      "features": [
+        "Declarative workflow specifications in YAML — states, transitions, guards, invariants, deadlines",
+        "Custom expression language with formal EBNF grammar (comparisons, logical operators, list operations, null checks)",
+        "Static verifier proving temporal logic properties — reachability, ordering, permanence, cycle detection, determinism",
+        "Atomic transitions with invariant enforcement and automatic rollback on violation",
+        "Complete audit trail with guard/invariant evaluation results persisted via SQLAlchemy with optimistic locking",
+        "REST API (FastAPI), auto-generated Graphviz diagrams, and interactive Streamlit demo"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "MiniLang – A Compiled Programming Language & Web Playground",
+      "tagline": "Designed and built a compiler with built-in static analysis in Rust from scratch that runs in the browser via WebAssembly",
+      "description": "Engineered a complete, production-grade compiler for MiniLang — a custom language with unique, highly readable syntax (AND/OR/NOT keywords, display/send semantics). Implemented all classic compiler phases from scratch: lexer, recursive-descent parser, semantic analyzer, multi-pass optimizer (constant folding, dead code elimination, constant propagation, strength reduction), and C code generation. Built a comprehensive static analysis engine computing cyclomatic complexity, cognitive complexity (SonarSource-style), Halstead metrics, nesting depth, and fan-out per function — with A–F quality ratings, actionable warnings, and JSON export for CI/CD integration. Delivered a polished, VS Code–like interactive playground in the browser using WebAssembly, Monaco Editor, and modern frontend tooling.",
+      "image": "/projects/minilang.png",
+      "github": "https://github.com/heetabhanushali/minilang_compiler.git",
+      "liveDemo": "https://minilang-playground.vercel.app/",
+      "videoDemo": "",
+      "techStack": ["rust", "webassembly", "wasm-bindgen", "miette", "monaco-editor", "serde"],
+      "category": "security",
+      "featured": false,
+      "visible": true,
+      "timeline": "February 2025 - May 2025",
+      "features": [
+        "Complete compiler pipeline written entirely in safe Rust (lexer → parser → type checker → optimizer → C codegen)",
+        "Four optimization passes with live statistics and AST visualization in the browser",
+        "Built-in static analysis engine: cyclomatic complexity, cognitive complexity, Halstead metrics, nesting depth, fan-out, and A–F quality ratings per function",
+        "Actionable code-quality warnings (high complexity, deep nesting, excessive parameters, high fan-out) with JSON export for CI/CD",
+        "Real-time compilation, analysis, and error reporting in WebAssembly with beautiful miette diagnostics",
+        "Interactive playground with Monaco Editor, token highlighting, optimization stats panel, and live analysis view",
+        "Production deployment on Vercel with instant auto-deploys"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Gloves Shop - E-Commerce Microservices Platform",
+      "tagline": "Production-ready DevOps pipeline with polyglot microservices architecture",
+      "description": "Designed and deployed a scalable e-commerce platform demonstrating modern DevOps practices. The system comprises 8 independent microservices built with 5 different programming languages (Node.js, Python, Java, Go, PHP), containerized using Docker, and orchestrated via Kubernetes. Implemented comprehensive CI/CD pipelines using GitHub Actions and Jenkins, with infrastructure provisioned on AWS using Terraform. Integrated real-time system monitoring using Prometheus and Grafana for observability across all services.",
+      "image": "/projects/cicd-gloves.png",
+      "github": "https://github.com/heetabhanushali/gloves-shop-cicd.git",
+      "liveDemo": "",
+      "videoDemo": "",
+      "techStack": ["docker", "kubernetes", "terraform","github-actions","jenkins","grafana","prometheus","python","nodejs", "java","mysql", "mongodb"],
+      "category": "web",
+      "featured": false,
+      "visible": true,
+      "timeline": "December 2024 - January 2025",
+      "features": [
+        "8 microservices with polyglot architecture (Node.js, Python, Java, Go, PHP)",
+        "Containerized with Docker, orchestrated with Kubernetes",
+        "Dual CI/CD pipelines using GitHub Actions and Jenkins",
+        "Infrastructure as Code using Terraform for AWS EKS deployment",
+        "Multi-database architecture (MongoDB, MySQL, Redis, RabbitMQ)",
+        "Real-time observability with Prometheus and Grafana"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Cross Platform Packet Sniffer & Network Security Monitor",
+      "tagline": "Real-time network traffic analyzer with threat detection and web dashboard",
+      "description": "Built a comprehensive network security tool using Python and Scapy that captures, parses, and analyzes packets across OSI Layers 2-7. Features a thread-safe capture engine, heuristic-based threat detection for port scans, brute force attacks, and SYN floods, along with an interactive Flask-based dashboard for real-time visualization. Implements legal compliance notices for USA, UK, and India jurisdictions.",
+      "image": "/projects/packet-sniffer.png",
+      "github": "https://github.com/heetabhanushali/packet-sniffer.git",
+      "liveDemo": "https://packet-sniffer-bpub.onrender.com",
+      "videoDemo": "https://drive.google.com/file/d/1O33FlX99Hey1hdfA9x1azEwLy3Ts-oXn/view?usp=sharing",
+      "techStack": ["python","flask","scapy","restapi","javascript","chart.js","html", "css"],
+      "category": "web",
+      "featured": false,
+      "visible": true,
+      "timeline": "September 2024 - November 2024",
+      "features": [
+        "Multi-threaded packet capture engine with callback-based architecture",
+        "Deep packet inspection across 12+ protocols (TCP, UDP, HTTP, HTTPS, DNS, ICMP, ICMPv6, SSH, FTP, ARP, IPv4, IPv6)",
+        "Real-time security monitoring with configurable thresholds for port scans, SYN floods, and brute force detection",
+        "Cross-platform support with automatic interface detection (Windows/Npcap, macOS, Linux)",
+        "Interactive web dashboard with live packet streaming and protocol distribution charts",
+        "Rolling-window rate calculations for packets/sec and bytes/sec statistics"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "HelloChat – Real-time Social Chat Application",
+      "tagline": "Offline-first Flutter chat app with end-to-end encryption, Supabase Realtime & Gemini AI",
+      "description": "A comprehensive, offline-first real-time chat application built with Flutter and Supabase. Features end-to-end encryption using X25519 key exchange and AES-256-GCM, a robust message queue with exponential backoff retry, bidirectional sync between local storage (Hive) and server, real-time typing indicators, read receipts, an integrated Gemini AI chatbot, and a soft-delete conversation system with timestamp-based message filtering. Designed to function seamlessly across varying network conditions with optimistic UI updates, automatic reconnection, and persistent offline message queuing.",
+      "image": "/projects/chatapp.png",
+      "github": "https://github.com/heetabhanushali/flutter-chat-app.git",
+      "liveDemo": "",
+      "videoDemo": "https://drive.google.com/file/d/1rStmAzqX9XebmQw6Qa5b6Eva5E_xZPq6/view?usp=sharing",
+      "techStack": ["flutter", "dart", "supabase", "postgresql", "hive", "x25519", "aes-256-gcm"],
+      "category": "mobile",
+      "featured": false,
+      "visible": true,
+      "timeline": "December 2023 - May 2024",
+      "features": [
+        "End-to-end encryption using X25519 key exchange, HKDF key derivation & AES-256-GCM, with encrypted private-key backup on server for cross-device recovery",
+        "Offline-first architecture with Hive local storage, bidirectional sync service & persistent message queue",
+        "Message queue with exponential backoff retry, deduplication via client-generated IDs & automatic network-error classification (retryable vs permanent)",
+        "Real-time messaging & typing indicators via Supabase Realtime WebSocket channels",
+        "Advanced read receipts with precise 'Read at' timestamps and real-time read-status subscriptions",
+        "Soft-delete conversations with per-user deletion timestamps and automatic visibility restoration on new messages",
+        "Network-aware UI with connectivity monitoring, offline banner, and automatic reconnection with background sync",
+        "Optimistic message sending with instant local persistence and graceful rollback on failure",
+        "Integrated Google Gemini AI chatbot with offline-awareness",
+        "Secure auth with email/username login, unique username validation & PBKDF2-based key encryption on password change",
+        "Profile & post photo management with Supabase Storage and grid gallery",
+        "Day-wise message grouping with timestamp dividers, unread indicators & intelligent conversation sorting"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Credit Card Analysis Dashboard",
+      "tagline": "Interactive PowerBI dashboard for financial insights",
+      "description": "An interactive credit card analysis dashboard built with Power BI, featuring advanced data visualizations and SQL-based data processing. Provides comprehensive insights into spending patterns, transaction trends, and financial analytics.",
+      "image": "/projects/card_dashboard.png",
+      "github": "https://github.com/heetabhanushali/credit-card-analysis.git",
+      "liveDemo": "",
+      "videoDemo": "",
+      "techStack": ["powerbi", "excel", "sql"],
+      "category": "data",
+      "featured": false,
+      "visible": false,
+      "timeline": "June 2024",
+      "features": [
+        "Interactive data visualizations",
+        "Spending pattern analysis",
+        "Transaction trend tracking",
+        "SQL-based data processing",
+        "Excel data integration"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Sales Analytics Dashboard",
+      "tagline": "Comprehensive sales insights with real-time tracking",
+      "description": "A comprehensive sales analytics dashboard providing real-time business insights. Built with Power BI and Excel integration, enabling data-driven decision making through interactive charts and performance metrics.",
+      "image": "/projects/sales_dashboard.png",
+      "github": "https://github.com/heetabhanushali/sales-dashboard.git",
+      "liveDemo": "",
+      "videoDemo": "",
+      "techStack": ["powerbi", "excel"],
+      "category": "data",
+      "featured": false,
+      "visible": false,
+      "timeline": "August 2024",
+      "features": [
+        "Real-time sales metrics tracking",
+        "Revenue and profit analysis",
+        "Performance comparison charts",
+        "Excel data integration",
+        "Exportable reports"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Virtual Keyboard",
+      "tagline": "Interactive on-screen keyboard with custom layouts",
+      "description": "An interactive on-screen keyboard built with vanilla JavaScript, HTML, and CSS. Features customizable layouts, responsive design, and smooth animations for an enhanced typing experience.",
+      "image": "/projects/keyboard.png",
+      "github": "https://github.com/heetabhanushali/Virtual-Keyboard.git",
+      "liveDemo": "",
+      "videoDemo": "",
+      "techStack": ["html", "css", "javascript"],
+      "category": "web",
+      "featured": false,
+      "visible": false,
+      "timeline": "June 2024",
+      "features": [
+        "Customizable keyboard layouts",
+        "Responsive design for all devices",
+        "Smooth key press animations",
+        "Special character support",
+        "Pure vanilla JavaScript implementation"
+      ]
+    }
+  ]
+}

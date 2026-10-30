@@ -1,0 +1,191 @@
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+}
+
+/* Parallax Layers */
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.layer-1 {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%235178BD" fill-opacity="0.05" d="M0,32L48,53.3C96,75,192,117,288,122.7C384,128,480,96,576,90.7C672,85,768,107,864,133.3C960,160,1056,192,1152,186.7C1248,181,1344,139,1392,117.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat;
+    background-size: cover;
+    transform: translateY(0);
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+    padding-top: 80px;
+}
+
+.hero-greeting {
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-lg);
+}
+
+.accent {
+    color: var(--color-primary);
+    position: relative;
+}
+
+.hero-title {
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.dynamic-text {
+    color: var(--color-primary);
+    font-weight: 600;
+    position: relative;
+}
+
+.dynamic-text::after {
+    content: '|';
+    position: absolute;
+    right: -10px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.hero-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-2xl);
+    line-height: 1.8;
+}
+
+.hero-cta {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* Hero Visual */
+.hero-visual {
+    position: relative;
+}
+
+.floating-icons {
+    position: relative;
+    height: 400px;
+}
+
+.tech-icon {
+    position: absolute;
+    font-size: 3rem;
+    color: var(--color-primary);
+    opacity: 0.2;
+    animation: float 6s ease-in-out infinite;
+}
+
+.tech-icon:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.tech-icon:nth-child(2) { top: 60%; right: 20%; animation-delay: 1s; }
+.tech-icon:nth-child(3) { bottom: 20%; left: 30%; animation-delay: 2s; }
+.tech-icon:nth-child(4) { top: 40%; right: 40%; animation-delay: 3s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+
+.resume-dialog {
+    width: min(900px, 95vw);
+    height: 90vh;
+    margin: auto;
+    padding: 0;               /* needed so backdrop clicks are detected */
+    border: none;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.resume-dialog[open] {
+    display: flex;
+    flex-direction: column;
+}
+
+.resume-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+/* lock page scroll while the dialog is open */
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.resume-actions { display: flex; gap: var(--spacing-sm); }
+
+.resume-icon-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: none;
+    color: var(--color-text);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.resume-icon-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.resume-frame { flex: 1; width: 100%; border: none; }
+
+.hero-greeting    { animation: fadeInUp 0.6s ease-out 0.2s backwards; }
+.hero-name        { animation: fadeInUp 0.6s ease-out 0.4s backwards; }
+.hero-title       { animation: fadeInUp 0.6s ease-out 0.6s backwards; }
+.hero-description { animation: fadeInUp 0.6s ease-out 0.8s backwards; }
+.hero-cta         { animation: fadeInUp 0.6s ease-out 1s backwards; }

@@ -8,12 +8,20 @@
     
     "education": [
         {
+            "degree": "Masters in Software Systems Engineering",
+            "institution": "RWTH Aachen University",
+            "link": "https://www.rwth-aachen.de/",
+            "location": "Aachen, Germany",
+            "year": "Ongoing",
+            "score": ""
+        },
+        {
             "degree": "B.Tech in Computer Engineering",
             "institution": "Dwarkadas J. Sanghvi College of Engineering",
             "link": "https://www.djsce.ac.in/",
             "location": "Mumbai, Maharashtra",
             "year": "2022 - 2026",
-            "score": "CGPA: 8.94"
+            "score": "CGPA: 9.04"
         },
         {
             "degree": "Higher Secondary Certificate (12th)",

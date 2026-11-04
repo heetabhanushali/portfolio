@@ -83,7 +83,7 @@ export default function Hero() {
                             Currently pursuing Software Systems Engineering at RWTH Aachen.
                         </p>
                         <div className="hero-cta">
-                            <button className="btn btn-primary" onClick={() => openPdf({ title: "My Resume", url: "/EuropassCV_Heeta_Bhanushali.pdf" })}>
+                            <button className="btn btn-primary" onClick={() => openPdf({ title: "My Resume", url: "/Heeta_Bhanushali_Resume.pdf" })}>
                                 <i className="fas fa-download"></i> Download Resume
                             </button>
                             <button className="btn btn-secondary" onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
